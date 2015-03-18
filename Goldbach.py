@@ -81,7 +81,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
 for c, m, zl, zh in [('r', 'o', -50, -25), ('b', '^', -30, -5)]:
-    ax.scatter(xs, ys, zs, c=c, marker=m)
+    ax.scatter(xs, ys, zs, c=c)
 
 ax.set_xlabel('1st Prime axis')
 ax.set_ylabel('2nd Prime axis')
