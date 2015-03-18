@@ -18,29 +18,46 @@ def isPrime(n):
     return True
 
 def generatePrimeList(n,primelist):
+	
     for i in range(n):
         if isPrime(i):
             primelist=primelist+[i]            
             #print i
-            
+    	if i%(n/100)==0:
+			print 'Constructing Prime List : ',i*100/n+1,'%'
+			
     return primelist
 
 
 def isComposedOf3Prime(n,primelist):
     max_prime_index=0    
-    for i in range(len(primelist)):
-        for j in range(len(primelist)):
-            for k in range(len(primelist)):  
+    prime_tuple_list=[]
+    
+    for i in range(len(primelist)):#0~499
+    	if(n<primelist[i]):
+    		max_prime_index=i
+    	
+    	
+    for i in range(max_prime_index):
+        for j in range(max_prime_index):
+            for k in range(max_prime_index):  
                 if n ==primelist[i]+primelist[j]+primelist[k]:
-                    return [i,j,k]
-MAX_NUMBER = 100
+                    prime_tuple_list=prime_tuple_list+[(primelist[i],primelist[j],primelist[k])]
+    return prime_tuple_list               
+                 
+                   
+MAX_NUMBER = 500
 primelist=[]
-three_prime=[]
-primelist = generatePrimeList(MAX_NUMBER,primelist)
-for i in range(MAX_NUMBER):
-    three_prime =isComposedOf3Prime(i,primelist)
-    print three_prime
+three_prime=[0]
 
+primelist = generatePrimeList(MAX_NUMBER,primelist)
+
+for i in range(MAX_NUMBER):
+	if(i>5):
+	    three_prime =isComposedOf3Prime(i,primelist)
+	    print 'Number of 3Prime solutions of N=',i,' : ',len(three_prime)
+	    #print three_prime[0] #Output first solution.
+		
 #print primelist
 
 
