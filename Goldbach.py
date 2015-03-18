@@ -25,6 +25,7 @@ def generatePrimeList(n,primelist):
             #print i
     	if i%(n/100)==0:
 			print 'Constructing Prime List : ',i*100/n+1,'%'
+	
 			
     return primelist
 
@@ -34,9 +35,10 @@ def isComposedOf3Prime(n,primelist):
     prime_tuple_list=[]
     
     for i in range(len(primelist)):#0~499
-    	if(n<primelist[i]):
+    	if(n>primelist[i]):
     		max_prime_index=i
-    	
+    		
+    #print 'mpi : ',max_prime_index
     	
     for i in range(max_prime_index):
         for j in range(max_prime_index):
@@ -46,12 +48,12 @@ def isComposedOf3Prime(n,primelist):
     return prime_tuple_list               
                  
                    
-MAX_NUMBER = 500
+MAX_NUMBER = 50000
 primelist=[]
 three_prime=[0]
 
 primelist = generatePrimeList(MAX_NUMBER,primelist)
-
+print 'Number of Prime',len(primelist)
 for i in range(MAX_NUMBER):
 	if(i>5):
 	    three_prime =isComposedOf3Prime(i,primelist)
