@@ -38,8 +38,8 @@ primelist=[]
 three_prime=[]
 primelist = generatePrimeList(MAX_NUMBER,primelist)
 for i in range(MAX_NUMBER):
-    three_prime = isComposedOf3Prime(i,primelist)
-    print three_prime[0]
+    three_prime =isComposedOf3Prime(i,primelist)
+    print three_prime
 
 #print primelist
 
